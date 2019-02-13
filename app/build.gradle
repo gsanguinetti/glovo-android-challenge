@@ -14,7 +14,7 @@ android {
         versionName "1.0"
 
         // Configuration parameters (can be overridden in each buildType)
-        buildConfigField "String", "SERVER_BASE_URL", "\"http://192.168.110.216:3000/\""
+        buildConfigField "String", "SERVER_BASE_URL", "\"http://10.0.2.2:3000/\""
         manifestPlaceholders = [googleGeoApiKey: "AIzaSyCnYvYPt9uEumyMt8kLLBsKUa0E-fX7RLU"]
     }
 
