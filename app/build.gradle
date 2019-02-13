@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion App.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion App.minSdkVersion
+        targetSdkVersion App.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        // Configuration parameters (can be overridden in each buildType)
+        buildConfigField "String", "SERVER_BASE_URL", "\"http://192.168.110.216:3000/\""
+        manifestPlaceholders = [googleGeoApiKey: "AIzaSyCnYvYPt9uEumyMt8kLLBsKUa0E-fX7RLU"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':base')
+    implementation project(':usercity')
+    implementation project(':workingarea')
+    implementation project(':networkdatasource')
+
+    implementation Dependencies.kotlinStdLib
+    implementation Dependencies.appCompat
+    implementation Dependencies.ktx
+    implementation Dependencies.rxKotlin
+
+    implementation Dependencies.koinAndroid
+    implementation Dependencies.koinAndroidLifecycle
+    implementation Dependencies.koinAndroidViewModel
+
+    implementation Dependencies.androidxCore
+    implementation Dependencies.lifecycle
+
+    testImplementation Dependencies.jUnit
+    testImplementation Dependencies.koinTest
+}

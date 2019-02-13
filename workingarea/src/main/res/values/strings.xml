@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Working Area</string>
+    <string name="loading_map_content_error">Ups!, we have got an error while trying to get our working area. Please try again.</string>
+    <string name="retry">Retry</string>
+    <string name="city_not_available">City unavailable :(</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

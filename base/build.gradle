@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion App.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion App.minSdkVersion
+        targetSdkVersion App.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Dependencies.appCompat
+
+    implementation Dependencies.kotlinStdLib
+    implementation Dependencies.rxKotlin
+    implementation Dependencies.ktx
+
+    implementation Dependencies.androidxCore
+    implementation Dependencies.lifecycle
+    implementation Dependencies.koinTest
+
+    //Base utils for maps
+    implementation Dependencies.playServicesMap
+    implementation Dependencies.mapUtils
+
+    testImplementation Dependencies.jUnit
+}

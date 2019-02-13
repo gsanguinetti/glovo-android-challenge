@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gaston.gsanguinetti.glovo.citypicker">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:theme="@style/AppTheme">
+        <activity android:name=".presentation.ui.CityPickerActivity"
+            android:label="@string/city_picker_label"
+            android:configChanges="orientation|screenSize|fontScale"
+            android:screenOrientation="user"/>
+        <activity android:name=".presentation.ui.UserLocationFetchActivity"
+            android:theme="@style/AppThemeNoActionBar"
+            android:configChanges="orientation|screenSize|fontScale"
+            android:screenOrientation="user"/>
+    </application>
+
+</manifest>

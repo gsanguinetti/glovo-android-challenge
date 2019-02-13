@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grayFlange">#CECECE</color>
+    <color name="grayBorder">#E2E2E2</color>
+    <color name="polygonFillColor">#57ffc244</color>
+    <color name="cityDetailsNameTextColorEnabled">@color/colorAccent</color>
+    <color name="cityDetailsNameTextColorDisabled">#757575</color>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">citypicker</string>
+    <string name="app_title">Glovo Android Challenge</string>
+    <string name="title_location_permission">Location permission required</string>
+    <string name="text_location_permission">In order to show you the availability of our service in your city, we need to get access to your current location</string>
+    <string name="ok">OK</string>
+    <string name="fetch_location_error">Ups!, we have got an error while trying to get your current city. Please try again.</string>
+    <string name="loading_cities_error">Ups!, we have got an error while trying to get our available cities. Please try again.</string>
+    <string name="retry">Retry</string>
+</resources>

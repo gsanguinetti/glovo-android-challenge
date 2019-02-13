@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/mapContentLoadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/errorContainerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/loading_map_content_error"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/mapContentRetryLoadingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="@string/retry" />
+
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/mapCoordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/workingAreaMapFragment"
+            android:name="gaston.gsanguinetti.glovo.workingarea.presentation.ui.WorkingAreaMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchor="@+id/cityDetailsBottomSheet"
+            app:layout_behavior="gaston.gsanguinetti.glovo.workingarea.presentation.ui.CollapseBehavior" />
+
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/bottom_view_shadow"
+            app:layout_anchor="@id/cityDetailsBottomSheet" />
+
+        <RelativeLayout
+            android:id="@+id/cityDetailsBottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            app:behavior_hideable="false"
+            app:behavior_peekHeight="@dimen/bottom_peek_height"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                <View
+                    android:layout_width="32dp"
+                    android:layout_height="4dp"
+                    android:layout_margin="6dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bottom_sheet_flange" />
+
+            <fragment
+                android:id="@+id/cityDetailsFragment"
+                android:name="gaston.gsanguinetti.glovo.workingarea.presentation.ui.CityDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>

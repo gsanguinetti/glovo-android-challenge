@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cityNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_peek_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@drawable/city_details_name_colors"
+        android:textSize="18sp"
+        tools:text="Buenos Aires" />
+
+    <gaston.gsanguinetti.glovo.workingarea.presentation.ui.CityDetailItemView
+        android:id="@+id/currencyItemView"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        app:icon="@drawable/ic_currency_gray" />
+
+    <gaston.gsanguinetti.glovo.workingarea.presentation.ui.CityDetailItemView
+        android:id="@+id/isEnabledItemView"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        app:icon="@drawable/ic_done_gray" />
+
+    <gaston.gsanguinetti.glovo.workingarea.presentation.ui.CityDetailItemView
+        android:id="@+id/languageCodeView"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        app:icon="@drawable/ic_language_gray" />
+
+    <gaston.gsanguinetti.glovo.workingarea.presentation.ui.CityDetailItemView
+        android:id="@+id/timeZoneItemView"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        app:icon="@drawable/ic_time_gray" />
+
+</LinearLayout>

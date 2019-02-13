@@ -41,6 +41,14 @@ captures/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/codeStyles/Project.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+.idea/compiler.xml
 
 # Keystore files
 # Uncomment the following line if you do not want to check your keystore files in.
