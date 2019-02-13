@@ -16,5 +16,4 @@ In addition to these modules, the project contains the following additional ones
 - **base**: This is a base module which contains architecture base classes and helpers, which are used by the different product modules. 
 - **networkdatasource**: This module contains the logic to manage the network communication between the different product modules and the server, bringing a common data source class, which is instantiated by the network repositories of the different product modules.
 
-![Alt text](./modules.svg)
-<img src="./controllers_brief.svg">
+<img src="./modules.svg">
