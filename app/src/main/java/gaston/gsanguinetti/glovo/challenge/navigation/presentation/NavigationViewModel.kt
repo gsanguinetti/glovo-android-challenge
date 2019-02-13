@@ -11,9 +11,7 @@ class NavigationViewModel : ViewModel() {
     val navigateWorkingAreaMap = SingleLiveEvent<String>()
     val finishApplication = UiEvent()
 
-    fun startNavigation() {
-        navigateToFetchUserLocation.call()
-    }
+    fun startNavigation() = navigateToFetchUserLocation.call()
 
     fun onUserCityCodeFetched(cityCode :String?) {
         if(cityCode.isNullOrEmpty()) navigateToCityPicker.call()

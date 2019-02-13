@@ -10,8 +10,7 @@ import io.reactivex.Single
 class CheckLocationPermissionDeviceRepository(
     private val context: Context,
     private val permissionChecker: PermissionChecker
-) :
-    CheckLocationPermissionRepository {
+) : CheckLocationPermissionRepository {
 
     override fun hasLocationPermissionGranted(): Single<Boolean> =
         Single.just(checkLocationPermission())

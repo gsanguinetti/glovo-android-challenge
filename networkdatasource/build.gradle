@@ -32,7 +32,6 @@ dependencies {
     implementation Dependencies.retrofitGsonConverter
     implementation Dependencies.retrofitRxSupport
     implementation Dependencies.okhttp3
-    implementation Dependencies.okhttp3Mockserver
     implementation Dependencies.cache
 
     testImplementation Dependencies.jUnit

@@ -18,12 +18,18 @@ class CityDetailsUseCase(
         if (params == null) Maybe.empty()
         else {
             workingAreaCitiesRepository.getAvailableCities()
-                .map { it.map { Pair(it.code, it.workingArea.map { polygonUtil.decode(it) }) } }
+                .map { cityList ->
+                    cityList.map { (code, workingArea) ->
+                        Pair(
+                            code,
+                            workingArea.map { polygonUtil.decode(it) })
+                    }
+                }
                 .toMaybe()
                 .setUpForUseCase()
-                .flatMap {
-                    val city = it.find {
-                        it.second.find { polygonUtil.containsLocation(params, it) } != null
+                .flatMap { cityPolygonsList ->
+                    val city = cityPolygonsList.find { cityPolygons ->
+                        cityPolygons.second.find { polygonUtil.containsLocation(params, it) } != null
                     }
                     if (city == null) Maybe.empty<AvailableCityDetails>()
                     else cityDetailsRepository.getCityDetails(city.first).toMaybe().setUpForUseCase()

@@ -22,7 +22,7 @@ class NavigationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         navigationViewModel.run {
-            if(savedInstanceState == null) startNavigation()
+            if (savedInstanceState == null) startNavigation()
             navigateToFetchUserLocation.observe(this@NavigationActivity, Observer { navigateToFetchUserLocation() })
             navigateToCityPicker.observe(this@NavigationActivity, Observer { navigateToCityPicker() })
             finishApplication.observe(this@NavigationActivity, Observer { finish() })
@@ -30,17 +30,13 @@ class NavigationActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToFetchUserLocation() {
-        UserLocationFetchActivity.startActivityForResult(this)
-    }
+    private fun navigateToFetchUserLocation() = UserLocationFetchActivity.startActivityForResult(this)
 
-    private fun navigateToCityPicker() {
-        CityPickerActivity.startActivityForResult(this)
-    }
+    private fun navigateToCityPicker() = CityPickerActivity.startActivityForResult(this)
 
-    private fun navigateToWorkingArea(currentCityCode: String) {
+    private fun navigateToWorkingArea(currentCityCode: String) =
         WorkingAreaActivity.startActivityForResult(this, currentCityCode)
-    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when {

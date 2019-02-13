@@ -16,14 +16,20 @@ import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val workingArea = module {
+
+    // Presentation layer injections
     viewModel { WorkingAreaViewModel(get(), get(), get(), get()) }
-    factory { CityAreaMapper() }
     factory { CityDetailsContentMapper() }
+    factory { GeometryNormalizer() }
+    factory { MapPresentationContentMapper(get()) }
+
+    // Domain layer injections
+    factory { CityDetailsUseCase(get(), get(), get()) }
+    factory { MapContentUseCase(get(), get()) }
+
+    // Data layer injections
+    factory { CityAreaMapper() }
     factory { CityDetailsMapper() }
     factory { CityDetailsNetworkRepository(get(), get()) as CityDetailsRepository }
     factory { WorkingAreaCitiesNetworkRepository(get(), get()) as WorkingAreaCitiesRepository }
-    factory { CityDetailsUseCase(get(), get(), get()) }
-    factory { MapContentUseCase(get(), get()) }
-    factory { MapPresentationContentMapper(get()) }
-    factory { GeometryNormalizer() }
 }

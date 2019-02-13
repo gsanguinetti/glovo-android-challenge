@@ -16,11 +16,11 @@ class MapContentUseCase(
     public override fun buildUseCaseObservable(params: Unit?): Single<MapContent> =
         availableCitiesRepository.getAvailableCities()
             .setUpForUseCase()
-            .map { it.map { buildCityArea(it) } }
-            .map {
-                val cityLatLngBounds = it.map { CityLatLngBounds(it.first, makeLatLngBoundsFor(it.second)) }
+            .map { cityList -> cityList.map { buildCityArea(it) } }
+            .map { cityArea ->
+                val cityLatLngBounds = cityArea.map { CityLatLngBounds(it.first, makeLatLngBoundsFor(it.second)) }
                 MapContent(
-                    it.map { CityPolygons(it.first, it.second) },
+                    cityArea.map { CityPolygons(it.first, it.second) },
                     cityLatLngBounds.map { CityPoint(it.cityCode, it.latLngBounds.center) },
                     cityLatLngBounds
                 )
@@ -31,5 +31,7 @@ class MapContentUseCase(
     }
 
     private fun makeLatLngBoundsFor(locations: List<List<LatLng>>) =
-        LatLngBounds.Builder().apply { locations.forEach { it.forEach { include(it) } } }.build()
+        LatLngBounds.Builder().apply {
+            locations.forEach { locationList -> locationList.forEach { include(it) } }
+        }.build()
 }

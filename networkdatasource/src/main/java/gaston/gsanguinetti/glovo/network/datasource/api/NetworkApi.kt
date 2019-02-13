@@ -54,8 +54,4 @@ class NetworkApi(
         index: String,
         apiCall: ((api: T) -> Single<DATA>)
     ): Single<DATA> = makeCacheableApiCallForResponse(apiClass, dataClass, index, { it }, { it }, apiCall)
-
-    fun <DATA : Any> cleanFromCache(dataClass: Class<DATA>, index: String) =
-        cacheProvider.clear(dataClass, index)
-
 }

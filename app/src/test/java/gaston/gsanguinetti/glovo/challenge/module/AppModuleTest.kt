@@ -18,7 +18,5 @@ class AppModuleTest : AbstractModuleTest() {
     }
 
     @Test
-    fun check() {
-        checkModules(appModules + mockedContextModule)
-    }
+    fun check() = checkModules(appModules + mockedContextModule)
 }

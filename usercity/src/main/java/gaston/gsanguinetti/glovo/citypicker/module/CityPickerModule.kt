@@ -22,7 +22,19 @@ import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val cityPicker = module {
+
+    // Presentation layer injections
+    viewModel { UserLocationFetchViewModel(get(), get()) }
+    viewModel { CityPickerViewModel(get(), get()) }
+    factory { CityPickerItemMapper() }
+    factory { GroupAdapter<ViewHolder>() }
+
+    // Domain layer injections
     factory { CheckLocationPermissionUseCase(get()) }
+    factory { FetchUserCityCodeUseCase(get(), get(), get()) }
+    factory { LocationsToPickUseCase(get(), get()) }
+
+    // Data layer injections
     factory { CheckLocationPermissionDeviceRepository(androidContext(), get()) as CheckLocationPermissionRepository }
     factory { PermissionChecker() }
     factory { LocationServices.getFusedLocationProviderClient(androidContext()) }
@@ -32,10 +44,4 @@ val cityPicker = module {
     factory { AvailableCountriesNetworkRepository(get(), get()) as AvailableCountriesRepository }
     factory { AvailableCityMapper() }
     factory { AvailableCountryMapper() }
-    factory { FetchUserCityCodeUseCase(get(), get(), get()) }
-    factory { LocationsToPickUseCase(get(), get()) }
-    factory { CityPickerItemMapper() }
-    factory { GroupAdapter<ViewHolder>() }
-    viewModel { UserLocationFetchViewModel(get(), get()) }
-    viewModel { CityPickerViewModel(get(), get()) }
 }

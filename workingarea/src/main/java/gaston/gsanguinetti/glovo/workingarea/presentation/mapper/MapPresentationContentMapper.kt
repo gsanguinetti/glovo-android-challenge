@@ -33,8 +33,8 @@ class MapPresentationContentMapper(private val geometryNormalizer: GeometryNorma
         )
 
     private fun List<CityPolygons>.buildCitiesNormalizedPolygons(): List<NormalizedPolygonCoordinates> =
-        map {
-            it.polygonsCoordinates.filter { isValidPolygonCoordinates(it) }
+        map { cityPolygons ->
+            cityPolygons.polygonsCoordinates.filter { isValidPolygonCoordinates(it) }
                 .createPolygons()
                 .mapNotNull { geometryNormalizer.normalize(it) }
                 .combineGeometriesAndCreateCityPolygon()
@@ -42,8 +42,8 @@ class MapPresentationContentMapper(private val geometryNormalizer: GeometryNorma
 
     private fun List<List<LatLng>>.createPolygons(): List<Polygon> =
         ArrayList<Polygon>(
-            this.map {
-                val polygonRing = ArrayList(it.map { Coordinate(it.latitude, it.longitude) })
+            this.map { polygon ->
+                val polygonRing = ArrayList(polygon.map { Coordinate(it.latitude, it.longitude) })
 
                 //Close the ring coordinates adding the first coordinate again
                 if (polygonRing.isNotEmpty()) polygonRing.add(polygonRing.first())
@@ -106,10 +106,10 @@ class MapPresentationContentMapper(private val geometryNormalizer: GeometryNorma
     }
 
     private fun List<NormalizedPolygonCoordinates>.buildPolygonOptions(): List<PolygonOptions> =
-        map {
+        map { (externalRing, holes) ->
             val polygonOptions = PolygonOptions()
-            polygonOptions.addAll(it.externalRing.map { LatLng(it.x, it.y) })
-            it.holes.forEach { polygonOptions.addHole(it.map { LatLng(it.x, it.y) }) }
+            polygonOptions.addAll(externalRing.map { LatLng(it.x, it.y) })
+            holes.forEach { hole -> polygonOptions.addHole(hole.map { LatLng(it.x, it.y) }) }
             polygonOptions
         }
 

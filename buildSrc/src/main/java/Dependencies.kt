@@ -34,7 +34,6 @@ object Dependencies {
     const val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitGsonConverter}"
     const val retrofitRxSupport = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"
-    const val okhttp3Mockserver = "com.squareup.okhttp3:mockwebserver:${Versions.okhttp3}"
     const val cache = "com.github.diareuse:mCache:${Versions.cache}"
 
     // Test dependencies
