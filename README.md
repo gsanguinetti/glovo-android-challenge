@@ -25,3 +25,13 @@ In order to maintain this code decoupled, testable and robust, the architecture 
 - **Presentation Layer**: Layer resposible for displaying the information provided by the business logic layer, using the UI interface. This layer use the [Google's architecture components](https://developer.android.com/topic/libraries/architecture/) approach to manipulate data between the activities/fragment and the presentation classes (represented by ViewModels).
 
 The communication and transformation of data between different layers is represented by *Mapper* classes. Each user flow which involves these three layers was developed using **async, event-based reactive programming** with [RxJava](https://github.com/ReactiveX/RxJava).
+
+
+### Dependency Injection
+All the app component dependencies are injected using [Koin](https://insert-koin.io/), which provides a lightweight and pure Kotlin dependency injection mechanism with [glorious support for Android architecture classes such as ViewModels](https://insert-koin.io/docs/1.0/documentation/reference/index.html#_architecture_components_with_koin_viewmodel). Each module has an extra package called *module* who contains the injections of all the dependencies used by this module.
+
+### Unit Testing
+Each module contains a set of unit test classes that intends to test every component of the architecture. These test classes were designed to check the output of the class being tested, using [Mockito](https://site.mockito.org/) to mock their inputs and dependencies.
+
+### Polygons Representation
+As specified in the challenge statement, this app represents the available zones of the Glovo service using polygons displayed in the main Google Map screen. In order to avoid overlapped polygons when each city is represented, and also to avoid overlapped polygons between cities (such as Rio de Janeiro Center and North Rio de Janeiro), a [polygon combination algorithm](workingarea/src/main/java/gaston/gsanguinetti/glovo/workingarea/presentation/mapper/MapPresentationContentMapper.kt) was developed using the [JTS library](http://metteo.github.io/jts/web/index.html). A unit test class with a valid example of test input polygons and the expected combination can [be found here](workingarea/src/test/java/gaston/gsanguinetti/glovo/workingarea/presentation/mapper/MapPresentationContentMapperTest.kt).
