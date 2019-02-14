@@ -7,7 +7,7 @@ This app solves the Glovo Android Challenge.
 - Run the app
 
 ### Project Structure
-This project was organized using the principles of the [app modularization by features](https://proandroiddev.com/intro-to-app-modularization-42411e4c421e). Although this approach is not necessary for an app as small as this challenge, it is useful to demonstrate how to structure a project that aims to build a robust and scalable application. This is a very common and good practice to keep different teams working on isolated and decoupled features. I divide this application in two "product features": 
+This project was organized using the principles of the [app modularization by features](https://proandroiddev.com/intro-to-app-modularization-42411e4c421e). Although this approach is not necessary for an app as small as this challenge, it is useful to demonstrate how to structure a project that aims to build a robust and scalable application. This is a very common and good practice to keep different teams working on isolated and decoupled features. This application was divided in two "product features": 
 - **User City**: This feature is the responsible for getting the code of the city where the user is located, using two strategies: the current user device location, and the available city picker screen which is displayed to the user when the application starts and cannot be able to fetch the device location.
 - **Working Area**: The main screen of the app, which loads the map of available zones and the details of the city focused on the map.
 
