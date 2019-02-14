@@ -12,7 +12,7 @@ This project was organized using the principles of the [app modularization by fe
 - **Working Area**: The main screen of the app, which loads the map of available zones and the details of the city focused on the map.
 
 In addition to these modules, the project contains the following additional ones:
-- **app**: This is the main application module which contains the application class and the navigation logic. The *NavigationActivity* is the responsible for manage the user through the flow composed by all the product features, loading the different features activities.
+- **app**: This is the main application module which contains the application class and the navigation logic. The *NavigationActivity* is the responsible for driving the user through the flow composed by all the product features, and for loading the different features activities.
 - **base**: This is a base module which contains architecture base classes and helpers, which are used by the different product modules. 
 - **networkdatasource**: This module contains the logic to manage the network communication between the different product modules and the server, bringing a common data source class, which is instantiated by the network repositories of the different product modules.
 
